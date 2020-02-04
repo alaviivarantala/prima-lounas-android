@@ -28,6 +28,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedInputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -135,38 +136,98 @@ public class MainActivity extends AppCompatActivity {
         text = text.trim().replaceAll("\r+", "\t").replaceAll(" +", " ").replaceAll("\t{2,}|\t+ +\t+", "\t");
         String[] splits = text.split("\t");
 
-        String companyName = splits[0];
-        String saladPrice = splits[1];
-        String restaurantName = splits[2];
-        String foodPrice = splits[3];
-        String phoneNumber = splits[4];
-        String soupPrice = splits[5];
-        String title = splits[6];
+        for (int i = 0; i < splits.length; i++) {
+            splits[i] = splits[i].trim();
+        }
 
-        String monday = splits[7];
-        String mondaySalad = splits[8];
-        String mondayFood = splits[9];
-        String mondaySoup = splits[10];
+        List<String> splitsList = new ArrayList<>(Arrays.asList(splits));
+        splitsList.removeAll(Arrays.asList("", null));
 
-        String tuesday = splits[11];
-        String tuesdaySalad = splits[12];
-        String tuesdayFood = splits[13];
-        String tuesdaySoup = splits[14];
+        String companyName = splitsList.get(0);
+        String saladPrice = splitsList.get(1);
+        String restaurantName = splitsList.get(2);
+        String foodPrice = splitsList.get(3);
+        String phoneNumber = splitsList.get(4);
+        String soupPrice = splitsList.get(5);
+        String title = splitsList.get(6);
 
-        String wednesday = splits[15];
-        String wednesdaySalad = splits[16];
-        String wednesdayFood = splits[17];
-        String wednesdaySoup = splits[18];
+        boolean[] days = {false, false, false, false, false};
+        List<List<String>> dayMenu = new ArrayList<>();
 
-        String thursday = splits[19];
-        String thursdaySalad = splits[20];
-        String thursdayFood = splits[21];
-        String thursdaySoup = splits[22];
+        for (int i = 7; i < splitsList.size(); i++) {
 
-        String friday = splits[23];
-        String fridaySalad = splits[24];
-        String fridayFood = splits[25];
-        String fridaySoup = splits[26];
+            String curr = splitsList.get(i);
+
+            if (curr.toLowerCase().startsWith("ma ")){
+                days[0] = true;
+                List<String> monday = new ArrayList<>();
+                while (true){
+                    String next = splitsList.get(i);
+                    if (next.toLowerCase().startsWith("ti ")){
+                        break;
+                    }
+                    monday.add(next);
+                    i++;
+                }
+                dayMenu.add(monday);
+            }
+            curr = splitsList.get(i);
+            if (curr.toLowerCase().startsWith("ti ") && days[0]){
+                days[1] = true;
+                List<String> tuesday = new ArrayList<>();
+                while (true){
+                    String next = splitsList.get(i);
+                    if (next.toLowerCase().startsWith("ke ")){
+                        break;
+                    }
+                    tuesday.add(next);
+                    i++;
+                }
+                dayMenu.add(tuesday);
+            }
+            curr = splitsList.get(i);
+            if (curr.toLowerCase().startsWith("ke ") && days[1]){
+                days[2] = true;
+                List<String> wednesday = new ArrayList<>();
+                while (true){
+                    String next = splitsList.get(i);
+                    if (next.toLowerCase().startsWith("to ")){
+                        break;
+                    }
+                    wednesday.add(next);
+                    i++;
+                }
+                dayMenu.add(wednesday);
+            }
+            curr = splitsList.get(i);
+            if ((curr.toLowerCase().startsWith("to ") || curr.toLowerCase().startsWith("t0")) && days[2]){
+                days[3] = true;
+                List<String> thursday = new ArrayList<>();
+                while (true){
+                    String next = splitsList.get(i);
+                    if (next.toLowerCase().startsWith("pe ")){
+                        break;
+                    }
+                    thursday.add(next);
+                    i++;
+                }
+                dayMenu.add(thursday);
+            }
+            curr = splitsList.get(i);
+            if (curr.toLowerCase().startsWith("pe ") && days[3]){
+                days[4] = true;
+                List<String> friday = new ArrayList<>();
+                while (true){
+                    String next = splitsList.get(i);
+                    if (next.toLowerCase().startsWith("lisä")){
+                        break;
+                    }
+                    friday.add(next);
+                    i++;
+                }
+                dayMenu.add(friday);
+            }
+        }
 
         textSaladPrice.setText(saladPrice);
         textFoodPrice.setText(foodPrice);
@@ -174,11 +235,9 @@ public class MainActivity extends AppCompatActivity {
 
         List<MenuItem> items = new ArrayList<>();
 
-        items.add(new MenuItem(monday, mondaySalad, mondayFood, mondaySoup));
-        items.add(new MenuItem(tuesday, tuesdaySalad, tuesdayFood, tuesdaySoup));
-        items.add(new MenuItem(wednesday, wednesdaySalad, wednesdayFood, wednesdaySoup));
-        items.add(new MenuItem(thursday, thursdaySalad, thursdayFood, thursdaySoup));
-        items.add(new MenuItem(friday, fridaySalad, fridayFood, fridaySoup));
+        for (int i = 0; i < dayMenu.size(); i++) {
+            items.add(new MenuItem(dayMenu.get(i).toArray(new String[0])));
+        }
 
         itemAdapter.add(items);
 

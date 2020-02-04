@@ -5,4 +5,6 @@
     <color name="colorAccent">#a1a1a0</color>
 
     <color name="colorWhitesmoke">#f5f5f5</color>
+    <color name="colorMainBackground">#121212</color>
+    <color name="colorMainElement">#1E1E1E</color>
 </resources>

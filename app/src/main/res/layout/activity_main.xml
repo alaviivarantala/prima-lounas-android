@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@color/colorWhitesmoke">
+    android:background="@color/colorMainBackground">
 
     <LinearLayout
         android:id="@+id/layout_loading"
@@ -27,8 +27,9 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hold on I'm fetching the menu!"
-            android:textAlignment="center"/>
+            android:text="Odota, soitetaan Samille ja kysellään Hondasta!"
+            android:textAlignment="center"
+            android:textColor="@color/colorWhitesmoke"/>
 
     </LinearLayout>
 
@@ -51,7 +52,8 @@
                 card_view:cardCornerRadius="4dp"
                 android:padding="4dp"
                 card_view:contentPadding="4dp"
-                card_view:cardElevation="4dp">
+                card_view:cardElevation="4dp"
+                card_view:cardBackgroundColor="@color/colorMainElement">
 
                 <GridLayout
                     android:layout_width="match_parent"
@@ -65,7 +67,8 @@
                         android:layout_columnWeight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Salaattipöytä 4,60 €"/>
+                        android:text="Salaattipöytä 4,60 €"
+                        android:textColor="@color/colorWhitesmoke"/>
 
                     <TextView
                         android:id="@+id/textview_foodprice"
@@ -73,7 +76,8 @@
                         android:layout_columnWeight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Kotiruoka 6,90 €"/>
+                        android:text="Kotiruoka 6,90 €"
+                        android:textColor="@color/colorWhitesmoke"/>
 
                     <TextView
                         android:id="@+id/textview_soupprice"
@@ -81,7 +85,8 @@
                         android:layout_columnWeight="1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Keitto 5,90 €"/>
+                        android:text="Keitto 5,90 €"
+                        android:textColor="@color/colorWhitesmoke"/>
 
                 </GridLayout>
 
@@ -111,9 +116,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Shits fuckd yo, we encountered an error:"
+            android:text="Nyt joku kusi:"
             android:textAlignment="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorWhitesmoke"/>
 
         <TextView
             android:id="@+id/textview_errortext"
@@ -122,9 +128,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Connection timed out."
+            android:text="Yhteys aikakatkaistiin."
             android:textAlignment="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorWhitesmoke"/>
 
         <TextView
             android:layout_gravity="center"
@@ -132,9 +139,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Whatever that means. \nI guess you should contact Sami Tuominen at sami.tuominen@primapower.com. Ask him about his Honda."
+            android:text="Mitä ikinä tuo sitten tarkoittaakaan. Koita vaikka päivittää oikeasta yläkulmasta. \nVoit myös pommittaa kehittäjää juha.ala-rantala@primapower.com."
             android:textAlignment="center"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorWhitesmoke"/>
 
     </LinearLayout>
 
