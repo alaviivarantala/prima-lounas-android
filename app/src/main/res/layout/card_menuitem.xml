@@ -29,7 +29,7 @@
                 android:id="@+id/textview_dayname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ma 4.5."
+                android:text="Päivä"
                 style="@style/TextAppearance.AppCompat.Headline"
                 android:textColor="@color/colorWhitesmoke"/>
 
@@ -44,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Eka"
-                style="@style/TextAppearance.AppCompat.Body2"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/colorWhitesmoke"/>
 
             <TextView
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Toka"
-                style="@style/TextAppearance.AppCompat.Body2"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/colorWhitesmoke"/>
 
             <TextView
@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Kol"
-                style="@style/TextAppearance.AppCompat.Body2"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/colorWhitesmoke"/>
 
             <TextView
@@ -68,7 +68,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nel"
-                style="@style/TextAppearance.AppCompat.Body2"
+                style="@style/TextAppearance.AppCompat.Subhead"
                 android:textColor="@color/colorWhitesmoke"/>
 
         </LinearLayout>

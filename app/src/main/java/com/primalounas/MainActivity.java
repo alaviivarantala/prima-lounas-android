@@ -10,9 +10,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.Menu;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -61,6 +63,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerFoodCourses.setAdapter(fastAdapter);
 
         fetchMenu();
+
+        int[] ids = AppWidgetManager.getInstance(getApplication()).getAppWidgetIds(new ComponentName(getApplication(), FoodMenuWidgetProvider.class));
+        FoodMenuWidgetProvider myWidget = new FoodMenuWidgetProvider();
+        myWidget.onUpdate(this, AppWidgetManager.getInstance(this),ids);
     }
 
     private void fetchMenu(){
