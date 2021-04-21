@@ -77,14 +77,14 @@ public class MainActivity extends AppCompatActivity {
         new CountDownTimer(5000, 5000) {
             public void onTick(long millisUntilFinished) { }
             public void onFinish() {
-                textLoading.setText("This is taking longer than expected... I'm gonna blame yamflex for this one.");
+                textLoading.setText("This is taking longer than expected...");
             }
         }.start();
 
         new CountDownTimer(15000, 15000) {
             public void onTick(long millisUntilFinished) { }
             public void onFinish() {
-                textLoading.setText("Still trying to load... The problem is probably either your internet connection or google's servers... \n\nOf course it's google's fault!");
+                textLoading.setText("Still trying to load... The problem is probably either your internet connection or google's servers...");
             }
         }.start();
 

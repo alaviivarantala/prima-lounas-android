@@ -1,8 +1,10 @@
 package com.primalounas;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -29,6 +31,8 @@ import retrofit2.Retrofit;
 
 public class FoodMenuWidgetProvider extends AppWidgetProvider {
 
+
+
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         final int count = appWidgetIds.length;
@@ -36,7 +40,10 @@ public class FoodMenuWidgetProvider extends AppWidgetProvider {
         for (int i = 0; i < count; i++) {
             int widgetId = appWidgetIds[i];
 
+            Intent intent = new Intent(context, MainActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
             RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.food_menu_widget);
+            remoteViews.setOnClickPendingIntent(R.id.linear_layout_food_menu_widget, pendingIntent);
 
             Callback<ResponseBody> responseBodyCallback = new Callback<ResponseBody>() {
                 @Override
